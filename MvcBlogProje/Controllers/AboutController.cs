@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
 
 namespace MvcBlogProje.Controllers
 {
+    [AllowAnonymous]
     public class AboutController : Controller
     {
         // GET: About
@@ -32,5 +34,21 @@ namespace MvcBlogProje.Controllers
             var authorlist = autman.GetAll();
             return PartialView(authorlist);
         }
+
+        [HttpGet]
+        public ActionResult UpdateAboutList()
+        {
+            var aboutlist = abm.GetAll();
+            return View(aboutlist);
+
+
+        }
+        [HttpPost]
+        public ActionResult UpdateAbout(About p)
+        {
+            abm.UpdateAboutBM(p);
+            return RedirectToAction("UpdateAboutList");
+        }
+
     }
 }

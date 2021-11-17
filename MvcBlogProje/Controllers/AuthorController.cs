@@ -13,6 +13,9 @@ namespace MvcBlogProje.Controllers
         // GET: Author
         BlogManager blogmanager = new BlogManager();
         AuthorManager authormanager = new AuthorManager();
+
+
+        [AllowAnonymous]
         public PartialViewResult AuthorAbout(int id)
         {
 
@@ -20,7 +23,7 @@ namespace MvcBlogProje.Controllers
 
             return PartialView(authordetail);
         }
-
+        [AllowAnonymous]
         public PartialViewResult AuthorPopularPost(int id)
         {
 
@@ -28,7 +31,7 @@ namespace MvcBlogProje.Controllers
             var authorblogs = blogmanager.GetBlogByAuthor(blogauthorid);
             return PartialView(authorblogs);
         }
-
+      
         public ActionResult AuthorList()
         {
           var authorlists=authormanager.GetAll();
@@ -68,5 +71,7 @@ namespace MvcBlogProje.Controllers
             return RedirectToAction("AuthorList");
 
         }
+
+
     }
 }

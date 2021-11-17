@@ -10,11 +10,22 @@ namespace BusinessLayer.Concrete
 {
     public class AboutManager
     {
-        Repository<About> repoblog = new Repository<About>();
+        Repository<About> repoabout = new Repository<About>();
         public List<About> GetAll()
         {
 
-            return repoblog.List();
+            return repoabout.List();
+        }
+
+        public int UpdateAboutBM(About p)
+        {
+            About about = repoabout.Find(x => x.AboutID == p.AboutID);
+            about.AboutContent1 = p.AboutContent1;
+            about.AboutContent2 = p.AboutContent2;
+            about.AboutImage1 = p.AboutImage1;
+            about.AboutImage2 = p.AboutImage2;
+            about.AboutID = p.AboutID;
+            return repoabout.Update(about);
         }
     }
 }

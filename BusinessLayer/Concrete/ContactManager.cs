@@ -15,7 +15,7 @@ namespace BusinessLayer.Concrete
         public int BLContactAdd(Contact c)
         {
 
-            if (c.Mail == "" || c.Message == "" || c.Name == "" || c.Subject == "" || c.Surname == "" ||  c.Mail.Length <= 10 ||
+            if (c.Mail == "" || c.Message == "" || c.Name == "" || c.Subject == "" || c.Surname == "" || c.Mail.Length <= 10 ||
                 c.Subject.Length <= 3)
 
 
@@ -30,6 +30,16 @@ namespace BusinessLayer.Concrete
 
         }
 
+        public List<Contact> GetAll()
+        {
+            return repocontact.List();
 
+
+        }
+        public Contact GetContactDetails(int id)
+        {
+
+            return repocontact.Find(x => x.ContactID == id);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace MvcBlogProje.Controllers
         // GET: Contact
 
         ContactManager cm = new ContactManager();
+        [AllowAnonymous]
         public ActionResult Index()
         {
 
@@ -31,6 +32,21 @@ namespace MvcBlogProje.Controllers
         {
             cm.BLContactAdd(p);
             return View();
+
+        }
+
+        public ActionResult SendBox()
+        {
+
+            var messagelist = cm.GetAll();
+            return View(messagelist);
+
+        }
+        public ActionResult MessageDetails(int id)
+        {
+
+            Contact contact = cm.GetContactDetails(id);
+            return View(contact);
 
         }
 
