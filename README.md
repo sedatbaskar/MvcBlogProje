@@ -15,6 +15,12 @@
 
 *Projemizde 3 panelden oluşmaktadır.Bu pannelerden birincisi Vitrin herkesin kullanımına açık olan kısmımız diğer iki panelde yazar ve admin panelleri*
 
+**Admin Paneli
+![Admin](https://i.hizliresim.com/htwglt9.png)
+
+**Yazar Paneli
+![Yazar](https://i.hizliresim.com/pxznmde.png)
+
 *Ana sayfada ilk olarak öne çıkan postlar bizi karşılıyor . Menüde gördüğümüz bazı kategorilere daha hızlı bir erişim sağlanması adına bu kategorilerilere giden linkler verdik . Gidilen bu sayfada ise filtreleme ile sadece o kategoriye ait postlar karşımıza çıkmaktadır.*
 
 ![Post](https://i.hizliresim.com/20bekk2.png)
