@@ -100,18 +100,22 @@
 
 
 
-                        <li class="nav-item">
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item">
 
-                            <a href="/Blog/AdminBlogList/" class="nav-link">
+                                <a href="/Blog/AdminBlogList/" class="nav-link">
 
-                                <i class="nav-icon fas fa-th"></i>
+                                    <i class="nav-icon fas fa-th"></i>
 
-                                <p>
-                                    Bloglar
-                                </p>
+                                    <p>
+                                        Bloglar
+                                    </p>
 
-                            </a>
-                        </li>
+                                </a>
+                            </li>
+
+                        }
                         <li class="nav-item">
 
                             <a href="/Blog/AdminBlogList2/" class="nav-link">
@@ -232,7 +236,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
+                            <a href="/User/LogOut/" class="nav-link">
                                 <i class="nav-icon fas fa-band-aid"></i>
                                 <p>
                                     Çıkış Yap

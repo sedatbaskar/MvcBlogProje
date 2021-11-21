@@ -233,6 +233,7 @@ namespace MvcBlogProje.Controllers
             return View();
 
         }
+        [Authorize(Roles = "A")]
         [HttpPost]
         public ActionResult AddnewBlog(Blog b)
         {

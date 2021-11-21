@@ -55,7 +55,7 @@ namespace MvcBlogProje.Controllers
 
                 FormsAuthentication.SetAuthCookie(admininfo.UserName, false);
                 Session["UserName"] = admininfo.UserName.ToString();
-                return RedirectToAction("AdminBlogList", "Blog");
+                return RedirectToAction("AdminBlogList2", "Blog");
             }
             else
             {
