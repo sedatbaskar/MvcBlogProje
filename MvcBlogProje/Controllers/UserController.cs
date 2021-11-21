@@ -41,7 +41,8 @@ namespace MvcBlogProje.Controllers
         {
              p = (string)Session["Mail"];
             Context c = new Context();
-            int id = c.Authors.Where(x => x.Mail == p).Select(y => y.AuthorID).FirstOrDefault();
+            int id = c.Authors.Where(x => x.Mail == p).Select(y =>
+            y.AuthorID).FirstOrDefault();
             var blogs = userProfile.GetBlogByAuthor(id);
 
             return View(blogs);

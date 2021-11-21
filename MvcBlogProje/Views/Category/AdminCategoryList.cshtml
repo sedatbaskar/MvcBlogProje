@@ -6,7 +6,7 @@
 
 
 
-
+@{ string color = " ";}
 
 <!DOCTYPE html>
 
@@ -58,7 +58,7 @@
 
                             <th style="width: 1%">
 
-                               iD
+                                iD
 
                             </th>
 
@@ -70,21 +70,18 @@
 
                             <th style="width: 30%">
 
-                               Son Blog
+                                Son Blog
 
                             </th>
 
-                            <th>
-
-                               Kategori Bar
-
-                            </th>
+                            
 
                             <th style="width: 8%" class="text-center">
 
                                 Durum
 
                             </th>
+
 
                             <th style="width: 20%">
 
@@ -95,101 +92,110 @@
                     </thead>
 
                     <tbody>
-                        @foreach (var item in Model) { 
-                        <tr>
+                        @foreach (var item in Model)
+                        {
+                            if (item.CategoryStatus == true)
+                            {
+                                color = "badge badge-success";
+                            }
+                            else
+                            {
+                                color = "badge badge-warning";
+                            }
 
-                            <td>@item.CategoryID</td>
-                            <td>@item.CategoryName</td>
-                           
-                            <td>
 
-                                <ul class="list-inline">
 
-                                    <li class="list-inline-item">
+                            <tr>
 
-                                        <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar.png">
+                                <td>@item.CategoryID</td>
+                                <td>@item.CategoryName</td>
 
-                                    </li>
+                                <td>
 
-                                    <li class="list-inline-item">
+                                    <ul class="list-inline">
 
-                                        <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar2.png">
+                                        <li class="list-inline-item">
 
-                                    </li>
+                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar.png">
 
-                                    <li class="list-inline-item">
+                                        </li>
 
-                                        <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar3.png">
+                                        <li class="list-inline-item">
 
-                                    </li>
+                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar2.png">
 
-                                </ul>
+                                        </li>
 
-                            </td>
+                                        <li class="list-inline-item">
 
-                            <td class="project_progress">
+                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar3.png">
 
-                                <div class="progress progress-sm">
+                                        </li>
 
-                                    <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
+                                    </ul>
 
-                                    </div>
+                                </td>
 
-                                </div>
+                                
 
-                                <small>
+                                <td class="project-state">
 
-                                    57% Complete
+                                    <span class="@color">  @item.CategoryStatus</span>
 
-                                </small>
+                                </td>
 
-                            </td>
 
-                            <td class="project-state">
+                                <td class="project-actions text-right">
 
-                                <span class="badge badge-success">Success</span>
+                                    <a class="btn btn-primary btn-sm" href="/Blog/BlogByCategory/@item.CategoryID">
 
-                            </td>
+                                        <i class="fas fa-folder">
 
-                            <td class="project-actions text-right">
+                                        </i>
 
-                                <a class="btn btn-primary btn-sm" href="#">
+                                        Yazılar
 
-                                    <i class="fas fa-folder">
+                                    </a>
 
-                                    </i>
+                                    <a class="btn btn-info btn-sm" href="/Category/CategoryEdit/@item.CategoryID">
 
-                                   Yazılar
+                                        <i class="fas fa-pencil-alt">
 
-                                </a>
+                                        </i>
 
-                                <a class="btn btn-info btn-sm" href="#">
+                                        Düzenle
 
-                                    <i class="fas fa-pencil-alt">
+                                    </a>
 
-                                    </i>
+                                    <a class="btn btn-danger btn-sm" href="/Category/CategoryDelete/@item.CategoryID">
 
-                         Düzenle
+                                        <i class="fas fa-trash">
 
-                                </a>
+                                        </i>
 
-                                <a class="btn btn-danger btn-sm" href="#">
+                                        Pasif Yap
 
-                                    <i class="fas fa-trash">
+                                    </a>
 
-                                    </i>
+                                    <a class="btn btn-warning btn-sm" href="/Category/CategoryStatusTrue/@item.CategoryID">
 
-                                   Sil
+                                        <i class="fas fa-trash">
 
-                                </a>
+                                        </i>
 
-                            </td>
-                            
-                        </tr>
+                                        Aktif Yap
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
                         }
                     </tbody>
 
                 </table>
+
+
 
             </div>
 
@@ -200,7 +206,36 @@
         <!-- /.card -->
 
     </section>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+        Yeni Kategori Ekle
+    </button>
 
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Yeni Kategori Ekleme Paneli</h2>
+
+
+                </div>
+                <form method="post" action="/Category/AdminCategoryAdd/">
+                    <div class="modal-body">
+                        <label>Kategori Adı</label>
+                        <input type="text" name="CategoryName" class="form-control" />
+                        <br />
+                        <label>Kategori Açıklama</label>
+                        <input type="text" name="CategoryDescription" class="form-control" />
+                        <br />
+                        <button class="btn btn-primary">Kaydet</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
 </body>
 
 </html>

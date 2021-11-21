@@ -19,6 +19,7 @@ namespace MvcBlogProje.Controllers
             return View(aboutcontent);
         }
 
+ 
         public PartialViewResult Footer()
 
         {

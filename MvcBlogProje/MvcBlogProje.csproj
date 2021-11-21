@@ -2080,12 +2080,14 @@
     <Content Include="miniblog\images\img_4.jpg" />
     <Content Include="miniblog\images\img_v_1.jpg" />
     <Content Include="miniblog\images\img_v_2.jpg" />
+    <Content Include="miniblog\images\man.png" />
     <Content Include="miniblog\images\mehmet_engur.jpg" />
     <Content Include="miniblog\images\person_1.jpg" />
     <Content Include="miniblog\images\person_2.jpg" />
     <Content Include="miniblog\images\person_3.jpg" />
     <Content Include="miniblog\images\person_4.jpg" />
     <Content Include="miniblog\images\person_5.jpg" />
+    <Content Include="miniblog\images\punch.png" />
     <Content Include="miniblog\images\ramazan_kaval.jpg" />
     <Content Include="miniblog\images\sedat_baskar.jpg" />
     <Content Include="miniblog\index.html" />
@@ -2624,6 +2626,8 @@
     <Content Include="Views\User\AddnewBlog.cshtml" />
     <Content Include="Views\Error\Page404.cshtml" />
     <Content Include="Views\Login\AdminLogin.cshtml" />
+    <Content Include="Views\Blog\AuthorBlogList.cshtml" />
+    <Content Include="Views\Category\CategoryEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,8 @@
 @model IEnumerable<EntityLayer.Concrete.Blog>
 
 @{ string color = " ";}
+
+
 <div class="site-section">
     <div class="container">
         <div class="row mb-5">
@@ -50,6 +52,8 @@
                 <figure class="author-figure mb-0 mr-3 float-left"><img src="@x.Author.AuthorImage" alt="Image" class="img-fluid"></figure>
                 <span class="d-inline-block mt-1"> <a href="#">@x.Author.AuthorName</a></span>
                 <span>&nbsp;-&nbsp; @(((DateTime)x.BlogDate).ToString("dd-MMM-yyyy"))</span>
+                Puan:@x.BlogRating
+
             </div>
             <p>@x.BlogContent.Substring(0, x.BlogContent.Substring(0, 200).LastIndexOf(" "))...</p>
             <p><a href="#">Devamını Oku</a></p>

@@ -12,11 +12,11 @@ using System.Windows;
 
 namespace MvcBlogProje.Controllers
 {
-   
+
+    [AllowAnonymous]
+
     public class BlogController : Controller
     {
-        // GET: Blog
-
         
         BlogManager bm = new BlogManager();
 
@@ -28,6 +28,8 @@ namespace MvcBlogProje.Controllers
         }
 
 
+
+        [AllowAnonymous]
         public PartialViewResult BlogList(int page = 1)
         {
             var bloglist = bm.GetAll().ToPagedList(page, 6);
@@ -35,6 +37,9 @@ namespace MvcBlogProje.Controllers
 
         }
 
+
+
+        [AllowAnonymous]
         public PartialViewResult FeaturesPosts()
         {
             //1.Post
@@ -115,6 +120,11 @@ namespace MvcBlogProje.Controllers
 
             return PartialView();
         }
+
+
+
+
+        [AllowAnonymous]
         public PartialViewResult OthersFeaturesPosts()
         {
 
@@ -125,6 +135,8 @@ namespace MvcBlogProje.Controllers
 
         }
 
+
+
         [AllowAnonymous]
         public ActionResult BlogDetalis()
         {
@@ -133,12 +145,18 @@ namespace MvcBlogProje.Controllers
             return View();
 
         }
+
+
+
         [AllowAnonymous]
         public PartialViewResult BlogCover(int id)
         {
             var blogDetailsList = bm.GetBlogByID(id);
             return PartialView(blogDetailsList);
         }
+
+
+
         [AllowAnonymous]
         public PartialViewResult BlogReadAll(int id)
         {
@@ -148,6 +166,9 @@ namespace MvcBlogProje.Controllers
             return PartialView(blogDetailsList);
 
         }
+
+
+
         [AllowAnonymous]
         public ActionResult BlogByCategory(int id)
         {
@@ -159,6 +180,7 @@ namespace MvcBlogProje.Controllers
             return View(BlogListByCategory);
 
         }
+
 
       
         public ActionResult AdminBlogList()
@@ -180,6 +202,8 @@ namespace MvcBlogProje.Controllers
             return View(bloglist);
 
         }
+       
+        [Authorize(Roles = "A")]
         [HttpGet]
         public ActionResult AddnewBlog()
         {
@@ -273,5 +297,13 @@ namespace MvcBlogProje.Controllers
 
 
         }
+        public ActionResult AuthorBlogList(int id)
+        {
+            var blogs = bm.GetBlogByAuthor(id);
+
+            return View(blogs);
+
+        }
+
     }
 }

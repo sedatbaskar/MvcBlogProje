@@ -8,16 +8,20 @@ using EntityLayer.Concrete;
 
 namespace MvcBlogProje.Controllers
 {
+    [AllowAnonymous]
     public class MailSubsciribeController : Controller
     {
         // GET: MailSubsciribe
+        
         [HttpGet]
+
         public PartialViewResult AddMail()
         {
             return PartialView();
         }
 
         [HttpPost]
+ 
         public PartialViewResult AddMail(SubscirebeMail p)
         {
 
