@@ -8,7 +8,7 @@
 - Rolleme Yetkilendirme
 - Google Charlar
 
-**MvcBlogProject içerisinde bulununan MvcBlogProject katmanının içerisinde bulunun Web.config dosyasından connectionString içerisine kullanılacak veritabanı türünün ayarları ve bağlantı cümlesi yapılmalıdır.**
+**MvcBlogProje içerisinde bulununan MvcBlogProje katmanının içerisinde bulunun Web.config dosyasından connectionString içerisine kullanılacak veritabanı türünün ayarları ve bağlantı cümlesi yapılmalıdır.**
 
 
 ![Web Config](https://i.hizliresim.com/oj2b7fm.png)
